@@ -1,0 +1,10 @@
+.wrap { display: flex; align-items: center; gap: 12px; }
+.centered { flex-direction: column; gap: 10px; }
+.mark { flex-shrink: 0; transition: filter 0.3s; }
+.mark:hover { filter: drop-shadow(0 0 28px rgba(88,101,242,0.7)) !important; }
+.text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}

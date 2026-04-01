@@ -1,0 +1,36 @@
+.wrap { display: flex; flex-direction: column; gap: 4px; }
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.box {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border-radius: 4px;
+  border: 1.5px solid var(--bg-5);
+  background: var(--bg-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.checked {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.text {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+.err { font-size: 12px; color: var(--danger); }
