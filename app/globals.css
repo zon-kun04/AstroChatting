@@ -1,0 +1,475 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@custom-variant dark (&:is(.dark *));
+
+/* Discord-inspired dark theme — always dark */
+
+:root {
+  --background: #313338;
+  --foreground: #dbdee1;
+  --card: #2b2d31;
+  --card-foreground: #dbdee1;
+  --popover: #111214;
+  --popover-foreground: #dbdee1;
+  --primary: #5865f2;
+  --primary-foreground: #ffffff;
+  --secondary: #4e5058;
+  --secondary-foreground: #dbdee1;
+  --muted: #2b2d31;
+  --muted-foreground: #949ba4;
+  --accent: #5865f2;
+  --accent-foreground: #ffffff;
+  --destructive: #da373c;
+  --destructive-foreground: #ffffff;
+  --border: #3f4147;
+  --input: #1e1f22;
+  --ring: #5865f2;
+  --chart-1: #5865f2;
+  --chart-2: #57f287;
+  --chart-3: #fee75c;
+  --chart-4: #eb459e;
+  --chart-5: #ed4245;
+  --radius: 0.5rem;
+  /* Discord surface palette */
+  --discord-dark: #1e1f22;
+  --discord-darker: #111214;
+  --discord-sidebar: #2b2d31;
+  --discord-chat: #313338;
+  --discord-input: #383a40;
+  --discord-hover: #35373c;
+  --discord-active: #404249;
+  --discord-green: #23a559;
+  --discord-yellow: #f0b232;
+  --discord-blurple: #5865f2;
+  --discord-blurple-hover: #4752c4;
+  --discord-nitro: #f47fff;
+  --sidebar: #2b2d31;
+  --sidebar-foreground: #dbdee1;
+  --sidebar-primary: #5865f2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #35373c;
+  --sidebar-accent-foreground: #dbdee1;
+  --sidebar-border: #3f4147;
+  --sidebar-ring: #5865f2;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Discord-like Light Theme */
+.light {
+  --background: #f2f3f5;
+  --foreground: #1f2328;
+  --card: #ffffff;
+  --card-foreground: #1f2328;
+  --popover: #ffffff;
+  --popover-foreground: #1f2328;
+  --primary: #5865f2;
+  --primary-foreground: #ffffff;
+  --secondary: #e3e5e8;
+  --secondary-foreground: #1f2328;
+  --muted: #f2f3f5;
+  --muted-foreground: #606770;
+  --accent: #5865f2;
+  --accent-foreground: #ffffff;
+  --destructive: #da373c;
+  --destructive-foreground: #ffffff;
+  --border: #c6c9cf;
+  --input: #ffffff;
+  --ring: #5865f2;
+
+  --discord-dark: #ffffff;
+  --discord-darker: #f7f8f9;
+  --discord-sidebar: #e3e5e8;
+  --discord-chat: #f2f3f5;
+  --discord-input: #ffffff;
+  --discord-hover: #dfe1e5;
+  --discord-active: #cfd3da;
+  --discord-green: #23a559;
+  --discord-yellow: #f0b232;
+  --discord-blurple: #5865f2;
+  --discord-blurple-hover: #4752c4;
+
+  --sidebar: var(--discord-sidebar);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--discord-blurple);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--discord-hover);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+
+
+/* Custom scrollbar - Discord-style */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1f22;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #111214;
+}
+
+/* Custom Themes - REFINED */
+
+/* Amoled Black */
+.theme-amoled {
+  --background: #000000;
+  --discord-chat: #000000;
+  --discord-sidebar: #000000;
+  --discord-darker: #000000;
+  --discord-dark: #000000;
+  --discord-input: #0a0a0a;
+  --border: #1a1a1a;
+  --card: #050505;
+}
+
+/* Cyberpunk: Neon Pink & Cyan */
+.theme-cyberpunk {
+  --background: #0d001a;
+  --discord-chat: #0d001a;
+  --discord-sidebar: #150029;
+  --discord-darker: #05000a;
+  --discord-blurple: #ff00ff;
+  --discord-blurple-hover: #cc00cc;
+  --primary: #ff00ff;
+  --accent: #00ffff;
+  --border: #330066;
+  --foreground: #e6ccff;
+}
+
+.theme-cyberpunk .border {
+  border-color: rgba(255, 0, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.1);
+}
+
+/* Glassmorphism Max */
+.theme-glass {
+  --background: transparent;
+  --discord-chat: rgba(20, 20, 25, 0.3);
+  --discord-sidebar: rgba(15, 15, 20, 0.45);
+  --discord-darker: rgba(10, 10, 15, 0.6);
+  --discord-input: rgba(40, 40, 50, 0.3);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+.theme-glass body {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Aplicar desenfoque a contenedores principales cuando el tema glass está activo */
+.theme-glass .bg-\[var\(--discord-sidebar\)\],
+.theme-glass .bg-\[var\(--discord-chat\)\],
+.theme-glass .bg-\[var\(--discord-darker\)\],
+.theme-glass .backdrop-blur-md,
+.theme-glass .backdrop-blur-sm,
+.theme-glass .flex.h-screen {
+  backdrop-filter: blur(20px) saturate(180%) contrast(90%) brightness(110%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(90%) brightness(110%) !important;
+}
+
+.theme-glass-bg {
+  background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.theme-glass .theme-glass-bg {
+  opacity: 1;
+}
+
+/* Premium Animations for Reactions */
+@keyframes reaction-jump {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  30% {
+    transform: scale(1.1) translateY(-4px) rotate(-8deg);
+  }
+
+  60% {
+    transform: scale(1.2) translateY(-6px) rotate(8deg);
+  }
+
+  100% {
+    transform: scale(1.1) translateY(-2px) rotate(0deg);
+  }
+}
+
+@keyframes reaction-glow {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.4));
+  }
+}
+
+.reaction-premium:hover {
+  animation: reaction-jump 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+}
+
+.reaction-premium-img:hover {
+  animation: reaction-jump 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate,
+    reaction-glow 1.5s ease-in-out infinite;
+}
+
+/* Sunset Vibes */
+.theme-sunset {
+  --background: #1a0a1a;
+  --discord-chat: #1a0a1a;
+  --discord-sidebar: #2d1b2d;
+  --discord-darker: #110811;
+  --discord-blurple: #ff6b35;
+  --discord-blurple-hover: #e55a25;
+  --primary: #ff6b35;
+  --accent: #c084fc;
+  --border: #3d1f3d;
+  --foreground: #fde8d8;
+}
+
+/* Midnight Ocean */
+.theme-ocean {
+  --background: #001a2e;
+  --discord-chat: #001a2e;
+  --discord-sidebar: #002744;
+  --discord-darker: #000f1a;
+  --discord-blurple: #00b4d8;
+  --discord-blurple-hover: #0096b7;
+  --primary: #00b4d8;
+  --accent: #90e0ef;
+  --border: #023e6e;
+  --foreground: #caf0f8;
+}
+
+/* Deep Forest */
+.theme-forest {
+  --background: #0d1a11;
+  --discord-chat: #0d1a11;
+  --discord-sidebar: #15291b;
+  --discord-darker: #070e09;
+  --discord-blurple: #38b000;
+  --discord-blurple-hover: #2d8a00;
+  --primary: #38b000;
+  --accent: #70e000;
+  --border: #1f3d28;
+  --foreground: #d8f3dc;
+}
+
+/* Matrix Reloaded */
+.theme-matrix {
+  --background: #0d0d0d;
+  --discord-chat: #000000;
+  --discord-sidebar: #0a0a0a;
+  --discord-darker: #000000;
+  --discord-blurple: #00ff41;
+  --discord-blurple-hover: #00cc33;
+  --primary: #00ff41;
+  --accent: #008f11;
+  --border: #003b00;
+  --foreground: #e0ffe0;
+}
+
+/* Crimson Blood */
+.theme-crimson { --background: #1a0505; --discord-chat: #1a0505; --discord-sidebar: #260a0a; --discord-darker: #0f0202; --discord-blurple: #e60000; --discord-blurple-hover: #c30000; --primary: #e60000; --accent: #ff2b2b; --border: #2d0c0c; --foreground: #ffbfbf; }
+
+/* Nebula Dreams */
+.theme-nebula { --background: #0f051a; --discord-chat: #0f051a; --discord-sidebar: #170a26; --discord-darker: #09020f; --discord-blurple: #9d4edd; --discord-blurple-hover: #8542bb; --primary: #9d4edd; --accent: #cc78ff; --border: #1b0c2d; --foreground: #dfb2ff; }
+
+/* Solar Flare */
+.theme-solar { --background: #1a0f05; --discord-chat: #1a0f05; --discord-sidebar: #26170a; --discord-darker: #0f0902; --discord-blurple: #ffaa00; --discord-blurple-hover: #d89000; --primary: #ffaa00; --accent: #ffdd4c; --border: #2d1b0c; --foreground: #ffeebb; }
+
+/* Abyssal Depths */
+.theme-abyss { --background: #050a1a; --discord-chat: #050a1a; --discord-sidebar: #0a1226; --discord-darker: #02050f; --discord-blurple: #0077b6; --discord-blurple-hover: #00659a; --primary: #0077b6; --accent: #2b9bed; --border: #0c152d; --foreground: #bfdfff; }
+
+/* Jade Serenity */
+.theme-jade { --background: #051a14; --discord-chat: #051a14; --discord-sidebar: #0a261d; --discord-darker: #020f09; --discord-blurple: #00b48a; --discord-blurple-hover: #009975; --primary: #00b48a; --accent: #2bebbf; --border: #0c2d22; --foreground: #bfffe3; }
+
+/* Bubblegum Pop */
+.theme-bubblegum { --background: #1a0515; --discord-chat: #1a0515; --discord-sidebar: #260a1f; --discord-darker: #0f020c; --discord-blurple: #ff70a6; --discord-blurple-hover: #d85e8d; --primary: #ff70a6; --accent: #ffb8d8; --border: #2d0c24; --foreground: #ffe5f1; }
+
+/* Lavender Frost */
+.theme-lavender { --background: #242038; --discord-chat: #242038; --discord-sidebar: #332d52; --discord-darker: #1a1629; --discord-blurple: #c8b6ff; --discord-blurple-hover: #aa9ad8; --primary: #c8b6ff; --accent: #e5cdff; --border: #3d3662; --foreground: #ffffff; }
+
+/* Hacker Terminal */
+.theme-hacker { --background: #000000; --discord-chat: #000000; --discord-sidebar: #050505; --discord-darker: #000000; --discord-blurple: #00ff00; --discord-blurple-hover: #00d800; --primary: #00ff00; --accent: #4cff4c; --border: #060606; --foreground: #b2ffb2; }
+
+/* Dracula */
+.theme-dracula { --background: #282a36; --discord-chat: #282a36; --discord-sidebar: #44475a; --discord-darker: #21222c; --discord-blurple: #ff79c6; --discord-blurple-hover: #d866a8; --primary: #ff79c6; --accent: #ffbedf; --border: #51556c; --foreground: #ffeaff; }
+
+/* Nord */
+.theme-nord { --background: #2e3440; --discord-chat: #2e3440; --discord-sidebar: #3b4252; --discord-darker: #242933; --discord-blurple: #88c0d0; --discord-blurple-hover: #73a3b0; --primary: #88c0d0; --accent: #c4f9ff; --border: #464f62; --foreground: #eaffff; }
+
+/* Monokai Pro */
+.theme-monokai { --background: #272822; --discord-chat: #272822; --discord-sidebar: #3e3d32; --discord-darker: #1c1d19; --discord-blurple: #f92672; --discord-blurple-hover: #d31f60; --primary: #f92672; --accent: #ff6e9d; --border: #4a493c; --foreground: #ffbed6; }
+
+/* Tokyo Night */
+.theme-tokyo { --background: #1a1b26; --discord-chat: #1a1b26; --discord-sidebar: #24283b; --discord-darker: #16161e; --discord-blurple: #7aa2f7; --discord-blurple-hover: #6789d1; --primary: #7aa2f7; --accent: #b1d3ff; --border: #2b3047; --foreground: #e0f0ff; }
+
+/* Synthwave '84 */
+.theme-synthwave { --background: #262335; --discord-chat: #262335; --discord-sidebar: #322d45; --discord-darker: #1f1d2c; --discord-blurple: #ff007f; --discord-blurple-hover: #d8006b; --primary: #ff007f; --accent: #ff4cca; --border: #3c3652; --foreground: #ffbfe4; }
+
+/* Gruvbox Dark */
+.theme-gruvbox { --background: #282828; --discord-chat: #282828; --discord-sidebar: #3c3836; --discord-darker: #1d2021; --discord-blurple: #fb4934; --discord-blurple-hover: #d53e2c; --primary: #fb4934; --accent: #ff7c65; --border: #484340; --foreground: #ffc9bd; }
+
+/* Material Oceanic */
+.theme-material { --background: #263238; --discord-chat: #263238; --discord-sidebar: #37474f; --discord-darker: #1d262b; --discord-blurple: #80cbc4; --discord-blurple-hover: #6caba6; --primary: #80cbc4; --accent: #b5ffff; --border: #42555e; --foreground: #ffffff; }
+
+/* Rosé Pine */
+.theme-rose { --background: #191724; --discord-chat: #191724; --discord-sidebar: #26233a; --discord-darker: #110f18; --discord-blurple: #ebbcba; --discord-blurple-hover: #c79e9d; --primary: #ebbcba; --accent: #fff0e7; --border: #2d2945; --foreground: #ffffff; }
+
+/* Catppuccin Mocha */
+.theme-catppuccin { --background: #1e1e2e; --discord-chat: #1e1e2e; --discord-sidebar: #313244; --discord-darker: #181825; --discord-blurple: #cba6f7; --discord-blurple-hover: #ac8cd1; --primary: #cba6f7; --accent: #fff9ff; --border: #3a3c51; --foreground: #ffffff; }
+
+/* GitHub Dark */
+.theme-github { --background: #0d1117; --discord-chat: #0d1117; --discord-sidebar: #161b22; --discord-darker: #010409; --discord-blurple: #58a6ff; --discord-blurple-hover: #4a8cd8; --primary: #58a6ff; --accent: #8fe5ff; --border: #1a2028; --foreground: #c2e9ff; }
+
+/* Obsidian */
+.theme-obsidian { --background: #1c1e26; --discord-chat: #1c1e26; --discord-sidebar: #252733; --discord-darker: #15171e; --discord-blurple: #ff6bb3; --discord-blurple-hover: #d85a98; --primary: #ff6bb3; --accent: #ffafdf; --border: #2c2e3d; --foreground: #ffe4f0; }
+
+/* Cobalt 2 */
+.theme-cobalt { --background: #193549; --discord-chat: #193549; --discord-sidebar: #224b67; --discord-darker: #122633; --discord-blurple: #ffc600; --discord-blurple-hover: #d8a800; --primary: #ffc600; --accent: #fffa30; --border: #285a7b; --foreground: #ffedb2; }
+
+/* Vampire Lord */
+.theme-vampire { --background: #000000; --discord-chat: #000000; --discord-sidebar: #0a0a0a; --discord-darker: #000000; --discord-blurple: #ff0000; --discord-blurple-hover: #d80000; --primary: #ff0000; --accent: #ff4c4c; --border: #0c0c0c; --foreground: #ffb2b2; }
+
+/* Slime Green */
+.theme-slime { --background: #051a05; --discord-chat: #051a05; --discord-sidebar: #0a260a; --discord-darker: #020f02; --discord-blurple: #aaff00; --discord-blurple-hover: #90d800; --primary: #aaff00; --accent: #deff4c; --border: #0c2d0c; --foreground: #edffb2; }
+
+/* Coral Reef */
+.theme-coral { --background: #1a0b0a; --discord-chat: #1a0b0a; --discord-sidebar: #261311; --discord-darker: #0f0504; --discord-blurple: #ff6b6b; --discord-blurple-hover: #d85a5a; --primary: #ff6b6b; --accent: #ffb1b1; --border: #2d1614; --foreground: #ffe2e2; }
+
+/* Quartz Crystal */
+.theme-quartz { --background: #211a1d; --discord-chat: #211a1d; --discord-sidebar: #2e242a; --discord-darker: #171013; --discord-blurple: #f4acb7; --discord-blurple-hover: #cf929b; --primary: #f4acb7; --accent: #ffe3e9; --border: #372b32; --foreground: #ffffff; }
+
+/* Amber Alert */
+.theme-amber { --background: #120a00; --discord-chat: #120a00; --discord-sidebar: #1c1000; --discord-darker: #0a0500; --discord-blurple: #ffb000; --discord-blurple-hover: #d89500; --primary: #ffb000; --accent: #ffe64c; --border: #211300; --foreground: #ffeea5; }
+
+/* Electric Cyan */
+.theme-electric { --background: #001a1a; --discord-chat: #001a1a; --discord-sidebar: #002626; --discord-darker: #000f0f; --discord-blurple: #00ffff; --discord-blurple-hover: #00d8d8; --primary: #00ffff; --accent: #4cffff; --border: #002d2d; --foreground: #b2ffff; }
+
+/* Magenta Madness */
+.theme-magenta { --background: #1a001a; --discord-chat: #1a001a; --discord-sidebar: #260026; --discord-darker: #0f000f; --discord-blurple: #ff00ff; --discord-blurple-hover: #d800d8; --primary: #ff00ff; --accent: #ff4cff; --border: #2d002d; --foreground: #ffb2ff; }
+
+/* Sapphire Glow */
+.theme-sapphire { --background: #020b1c; --discord-chat: #020b1c; --discord-sidebar: #04163a; --discord-darker: #010712; --discord-blurple: #4361ee; --discord-blurple-hover: #3852c9; --primary: #4361ee; --accent: #7496ff; --border: #041a45; --foreground: #c2cdff; }
+
+/* Emerald City */
+.theme-emerald { --background: #051f11; --discord-chat: #051f11; --discord-sidebar: #0a331c; --discord-darker: #03120a; --discord-blurple: #2ecc71; --discord-blurple-hover: #26ad5f; --primary: #2ecc71; --accent: #58efa0; --border: #0c3d21; --foreground: #c1efcf; }
+
+/* Royal Purple */
+.theme-royal { --background: #10091f; --discord-chat: #10091f; --discord-sidebar: #191133; --discord-darker: #0a0514; --discord-blurple: #7b2cbf; --discord-blurple-hover: #6825a2; --primary: #7b2cbf; --accent: #aa6fe1; --border: #1d143c; --foreground: #dfc8f3; }
+
+/* Peach Puff */
+.theme-peach { --background: #2b1c18; --discord-chat: #2b1c18; --discord-sidebar: #402b25; --discord-darker: #1c110d; --discord-blurple: #ffb5a7; --discord-blurple-hover: #d8998d; --primary: #ffb5a7; --accent: #ffecba; --border: #4c332c; --foreground: #ffede6; }
+
+/* Olive Grove */
+.theme-olive { --background: #171c0d; --discord-chat: #171c0d; --discord-sidebar: #242b15; --discord-darker: #0e1208; --discord-blurple: #a7c957; --discord-blurple-hover: #8daa49; --primary: #a7c957; --accent: #ddff87; --border: #2b3319; --foreground: #edfed7; }
+
+/* Chestnut Wood */
+.theme-chestnut { --background: #1c110a; --discord-chat: #1c110a; --discord-sidebar: #2b1b10; --discord-darker: #110a05; --discord-blurple: #d4a373; --discord-blurple-hover: #b48a61; --primary: #d4a373; --accent: #ffd1a3; --border: #332013; --foreground: #ffe4c7; }
+
+/* Light Mode */
+.theme-light {
+  --background: #ffffff;
+  --discord-chat: #ffffff;
+  --discord-sidebar: #f2f3f5;
+  --discord-darker: #e3e5e8;
+  --discord-blurple: #5865f2;
+  --discord-blurple-hover: #4752c4;
+  --primary: #5865f2;
+  --accent: #ebedef;
+  --border: #e3e5e8;
+  --foreground: #060607;
+}
+
+/* Pastel Pink */
+.theme-pastel-pink {
+  --background: #fff0f5;
+  --discord-chat: #fff0f5;
+  --discord-sidebar: #ffe4e1;
+  --discord-darker: #ffd1dc;
+  --discord-blurple: #ffb6c1;
+  --discord-blurple-hover: #ff99a8;
+  --primary: #ffb6c1;
+  --accent: #ffebef;
+  --border: #ffc0cb;
+  --foreground: #301b22;
+}
+
+/* Pastel Blue */
+.theme-pastel-blue {
+  --background: #f0f8ff;
+  --discord-chat: #f0f8ff;
+  --discord-sidebar: #e6f2ff;
+  --discord-darker: #d0e8ff;
+  --discord-blurple: #add8e6;
+  --discord-blurple-hover: #90cadd;
+  --primary: #add8e6;
+  --accent: #e0f0ff;
+  --border: #b0d4ff;
+  --foreground: #1c2b36;
+}
