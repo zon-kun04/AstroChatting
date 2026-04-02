@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Astro Chatting
 
 bueno gente aqui les dejo el repositorio oficial de astro chatting.
@@ -34,3 +35,7 @@ como aportar:
 5. abri el pull request asi lo vemos y lo sumamos a la version oficial
 
 nada mas, estan invitados a meterle mano al codigo y armar el chat del ano entre todos.
+=======
+# AstroChatting
+ messaging platform with chat, stories, missions, and more. 
+>>>>>>> d34138ef8c85f3412d123656f471aa51d1593300
