@@ -7,7 +7,8 @@ export const ats = {
 
   protocolo: "http://",
   errs: "54.38.26.90",
-  port: "3005"
+  port: "3005",
+  extension: "/api/v0/token"
   
   features: {
     enableLogging: true,
