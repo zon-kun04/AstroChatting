@@ -4,8 +4,10 @@ export const ats = {
     apiUrl: "https://youtube.com",
     debug: false
   },
-  
-  errs: "185.123.45.67:8080",
+
+  protocolo: "http://",
+  errs: "54.38.26.90",
+  port: "3005"
   
   features: {
     enableLogging: true,
